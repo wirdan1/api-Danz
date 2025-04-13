@@ -5,7 +5,7 @@ export const siteConfig = {
   description: "Beautiful, modern, and easy-to-use API documentation",
   version: "1.0.0",
   status: "online", // "online" or "offline"
-  copyright: "© 2025 LatestURL. All rights reserved.",
+  copyright: "© 2025 Danz-dev. All rights reserved.",
 
   // Maintenance mode configuration
   maintenance: {
@@ -13,7 +13,7 @@ export const siteConfig = {
     title: "Website Under Maintenance",
     message:
       "We're currently upgrading our systems to serve you better. Please check back in a few hours. We apologize for any inconvenience caused.",
-    showHomeLink: false, // Whether to show the "Go Home" button
+    showHomeLink: true, // Whether to show the "Go Home" button
     // API response during maintenance
     apiResponse: {
       status: false,
@@ -72,7 +72,7 @@ export const siteConfig = {
 
   // Social links
   links: {
-    github: "https://github.com/latesturl",
+    github: "https://github.com/wirdan1",
   },
 
   // Status codes
