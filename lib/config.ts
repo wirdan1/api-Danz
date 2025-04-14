@@ -3,9 +3,9 @@ export const siteConfig = {
   // Website information
   name: "Danz-Api's",
   description: "Beautiful, modern, and easy-to-use API documentation",
-  version: "1.0.0",
+  version: "1.0.1",
   status: "online", // "online" or "offline"
-  copyright: "© 2025 Danz-dev. All rights reserved.",
+  copyright: "© 2025 Danz-dev<. All rights reserved.",
 
   // Maintenance mode configuration
   maintenance: {
@@ -13,7 +13,7 @@ export const siteConfig = {
     title: "Website Under Maintenance",
     message:
       "We're currently upgrading our systems to serve you better. Please check back in a few hours. We apologize for any inconvenience caused.",
-    showHomeLink: true, // Whether to show the "Go Home" button
+    showHomeLink: false, // Whether to show the "Go Home" button
     // API response during maintenance
     apiResponse: {
       status: false,
@@ -47,7 +47,7 @@ export const siteConfig = {
 
   // API information
   api: {
-    baseUrl: "https://api-danz-danzs-projects-6342826a.vercel.app", // Updated base URL
+    baseUrl: "https://api.danz.my.id", // Updated base URL
     creator: "Danz-dev",
     versions: ["v1", "v2"], // Available API versions
     defaultVersion: "v2", // Default API version
@@ -188,6 +188,16 @@ export const siteConfig = {
             { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
           ],
           versions: ["v1", "v2"], // Available in both versions
+        },
+        {
+          method: "GET",
+          path: "/ai/gemini",
+          description: "Generate AI responses using GeminiAI",
+          mediaType: "application/json",
+          parameters: [
+            { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
+          ],
+          versions: ["v1"], // Available in both versions
         },
         {
           method: "POST",
