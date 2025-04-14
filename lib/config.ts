@@ -190,6 +190,16 @@ export const siteConfig = {
           versions: ["v1", "v2"], // Available in both versions
        },
         {
+          method: "GET",
+          path: "/ai/gemini",
+          description: "Generate AI responses using GeminiAI",
+          mediaType: "application/json",
+          parameters: [
+            { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
+          ],
+          versions: ["v1", "v2"], // Available in both versions
+       },
+        {
           method: "POST",
           path: "/ai/hydromind",
           description: "Generate AI responses using HydroMind",
