@@ -27,7 +27,7 @@ export const siteConfig = {
     // Set to empty string for no logo (default)
     // For local file: "/path/to/logo.svg"
     // For URL: "https://example.com/logo.svg"
-    src: "https://raw.githubusercontent.com/latesturl/dbCDN/refs/heads/main/logo.svg",
+    src: "https://files.catbox.moe/mmkqsu.jpg",
     width: 40,
     height: 40,
     alt: "Danz-Api's", // Alt text for accessibility
