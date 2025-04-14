@@ -47,7 +47,7 @@ export const siteConfig = {
 
   // API information
   api: {
-    baseUrl: "https://api.danz.my.id", // Updated base URL
+    baseUrl: "https://api-danz-danzs-projects-6342826a.vercel.app", // Updated base URL
     creator: "Danz-dev",
     versions: ["v1", "v2"], // Available API versions
     defaultVersion: "v2", // Default API version
