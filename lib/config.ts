@@ -50,7 +50,7 @@ export const siteConfig = {
     baseUrl: "https://api.danz.my.id", // Updated base URL
     creator: "Danz-dev",
     versions: ["v1", "v2"], // Available API versions
-    defaultVersion: "v2", // Default API version
+    defaultVersion: "v1", // Default API version
     rateLimit: {
       limit: 1000, // Requests per minute (default)
       window: "1 minute", // Human-readable window
@@ -191,13 +191,13 @@ export const siteConfig = {
         },
         {
           method: "GET",
-          path: "/ai/gemini",
+          path: "/ai/llama",
           description: "Generate AI responses using GeminiAI",
           mediaType: "application/json",
           parameters: [
             { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
           ],
-          versions: ["v1"], // Available in both versions
+          versions: ["v1", "v2"], // Available in both versions
         },
         {
           method: "POST",
