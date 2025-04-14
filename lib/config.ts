@@ -27,7 +27,7 @@ export const siteConfig = {
     // Set to empty string for no logo (default)
     // For local file: "/path/to/logo.svg"
     // For URL: "https://example.com/logo.svg"
-    src: "https://files.catbox.moe/mmkqsu.jpg",
+    src: "https://raw.githubusercontent.com/latesturl/dbCDN/refs/heads/main/logo.svg",
     width: 40,
     height: 40,
     alt: "Danz-Api's", // Alt text for accessibility
@@ -50,7 +50,7 @@ export const siteConfig = {
     baseUrl: "https://api.danz.my.id", // Updated base URL
     creator: "Danz-dev",
     versions: ["v1", "v2"], // Available API versions
-    defaultVersion: "v1", // Default API version
+    defaultVersion: "v2", // Default API version
     rateLimit: {
       limit: 1000, // Requests per minute (default)
       window: "1 minute", // Human-readable window
@@ -188,7 +188,7 @@ export const siteConfig = {
             { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
           ],
           versions: ["v1", "v2"], // Available in both versions
-       },
+        },
         {
           method: "GET",
           path: "/ai/gemini",
@@ -197,8 +197,8 @@ export const siteConfig = {
           parameters: [
             { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
           ],
-          versions: ["v1", "v2"], // Available in both versions
-       },
+          versions: ["v1"], // Available in both versions
+        },
         {
           method: "POST",
           path: "/ai/hydromind",
