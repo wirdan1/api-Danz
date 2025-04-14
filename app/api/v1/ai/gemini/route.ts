@@ -6,7 +6,6 @@ import { memoryCache } from "@/lib/cache"
 const CACHE_TTL = 3600 // 1 hour
 
 export async function GET(request: Request) {
-  // Check if maintenance mode is enabled
   if (siteConfig.maintenance.enabled) {
     return new NextResponse(
       JSON.stringify(
@@ -19,7 +18,7 @@ export async function GET(request: Request) {
         2
       ),
       {
-        status: 503, // Service Unavailable
+        status: 503,
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           "Cache-Control": "no-store",
@@ -28,16 +27,13 @@ export async function GET(request: Request) {
     )
   }
 
-  // Get query parameters
   const { searchParams } = new URL(request.url)
   const prompt = searchParams.get("prompt") || "Hi, act like Gemini AI"
 
   try {
-    // Create a cache key
     const cacheKey = `gemini-response-${prompt}`
-
-    // Try to get from cache first
     const cachedResponse = memoryCache.get(cacheKey)
+
     if (cachedResponse) {
       return new NextResponse(
         JSON.stringify(
@@ -46,7 +42,7 @@ export async function GET(request: Request) {
             creator: siteConfig.api.creator,
             result: cachedResponse,
             cached: true,
-            version: "v1", // or "v2" depending on the file location
+            version: "v1",
           },
           null,
           2
@@ -60,11 +56,10 @@ export async function GET(request: Request) {
       )
     }
 
-    // Implement your API logic here
     const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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",
+        Authorization: "Bearer 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",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -72,7 +67,7 @@ export async function GET(request: Request) {
         messages: [
           {
             role: "system",
-            content: "You are Gemini, a helpful and smart AI assistant developed by Google. Respond friendly and clearly.",
+            content: "Kamu adalah GeminiAI, asisten yang dibuat oleh Danz-dev. Kamu adalah asisten sekaligus teman chatting yang baik dan ramah.",
           },
           {
             role: "user",
@@ -83,22 +78,17 @@ export async function GET(request: Request) {
     })
 
     const openaiData = await openaiRes.json()
-    const result = {
-      prompt,
-      response: openaiData.choices?.[0]?.message?.content || "No response",
-    }
+    const responseText = openaiData.choices?.[0]?.message?.content?.trim() || "Eh, halo! Ada yang bisa aku bantu?"
 
-    // Cache the result
-    memoryCache.set(cacheKey, result, CACHE_TTL)
+    memoryCache.set(cacheKey, responseText, CACHE_TTL)
 
-    // Return the response
     return new NextResponse(
       JSON.stringify(
         {
           status: true,
           creator: siteConfig.api.creator,
-          result,
-          version: "v1", // or "v2" depending on the file location
+          result: responseText,
+          version: "v1",
         },
         null,
         2
@@ -117,7 +107,7 @@ export async function GET(request: Request) {
           status: false,
           creator: siteConfig.api.creator,
           error: error instanceof Error ? error.message : "An error occurred",
-          version: "v1", // or "v2" depending on the file location
+          version: "v1",
         },
         null,
         2
