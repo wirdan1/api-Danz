@@ -49,8 +49,8 @@ export const siteConfig = {
   api: {
     baseUrl: "https://api.danz.my.id", // Updated base URL
     creator: "Danz-dev",
-    versions: ["v1", "v2"], // Available API versions
-    defaultVersion: "v2", // Default API version
+    versions: ["v1"], // Available API versions
+    defaultVersion: "v1", // Default API version
     rateLimit: {
       limit: 1000, // Requests per minute (default)
       window: "1 minute", // Human-readable window
@@ -187,7 +187,7 @@ export const siteConfig = {
           parameters: [
             { name: "text", type: "string", required: true, description: "The text prompt to send to the AI" },
           ],
-          versions: ["v1", "v2"], // Available in both versions
+          versions: ["v1"], // Available in both versions
         },
         {
           method: "GET",
@@ -219,7 +219,7 @@ export const siteConfig = {
               description: "Number of responses to generate (optional)",
             },
           ],
-          versions: ["v1", "v2"], // Available in both versions
+          versions: ["v1"], // Available in both versions
         },
       ],
     },
@@ -235,7 +235,7 @@ export const siteConfig = {
           parameters: [
             { name: "text", type: "string", required: true, description: "The text to display in the brat image" },
           ],
-          versions: ["v1", "v2"], // Available in both versions
+          versions: ["v1"], // Available in both versions
         },
         {
           method: "GET",
@@ -245,7 +245,7 @@ export const siteConfig = {
           parameters: [
             { name: "text", type: "string", required: true, description: "The text to display in the brat video" },
           ],
-          versions: ["v1", "v2"], // Available in both versions
+          versions: ["v1"], // Available in both versions
         },
       ],
     },
@@ -259,7 +259,7 @@ export const siteConfig = {
           description: "Get a random Blue Archive image",
           mediaType: "image/png",
           parameters: [],
-          versions: ["v1", "v2"], // Available in both versions
+          versions: ["v1"], // Available in both versions
         },
       ],
     },
