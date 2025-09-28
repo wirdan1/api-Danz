@@ -71,12 +71,6 @@ function getVersionBadgeStyle(version: string): React.CSSProperties {
         backgroundColor: "rgba(59, 130, 246, 0.1)",
         color: "rgb(59, 130, 246)",
       }
-    case "v2":
-      return {
-        borderColor: "rgba(34, 197, 94, 0.3)",
-        backgroundColor: "rgba(34, 197, 94, 0.1)",
-        color: "rgb(34, 197, 94)",
-      }
     default:
       return {
         borderColor: "rgba(148, 163, 184, 0.3)",
